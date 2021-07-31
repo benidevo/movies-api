@@ -59,15 +59,15 @@ class Query(ObjectType):
         return Movie.objects.all()
 
 # Input object types
-class ActorInput(graphene.ObjectInput):
+class ActorInput(graphene.InputObjectType):
     id = graphene.ID()
     name = graphene.String()
 
 
-class MovieInput(graphene.ObjectInput):
+class MovieInput(graphene.InputObjectType):
     id = graphene.ID()
     title = graphene.String()
-    actors = graphene.List(ActorType)
+    actors = graphene.List(ActorInput)
     year = graphene.Int()
 
 
